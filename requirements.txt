@@ -1,0 +1,12 @@
+ultralytics
+opencv-python
+google-generativeai
+fastapi
+uvicorn
+aiosqlite
+aiohttp
+apns2
+python-dotenv
+pillow
+numpy
+python-multipart
