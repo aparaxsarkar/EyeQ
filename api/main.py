@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from api.routes.alerts import router as alerts_router
 from api.routes.clips import router as clips_router
+from api.routes.recordings import router as recordings_router
 from api.routes.snapshots import router as snapshots_router
 from api.routes.stream import router as stream_router
 from config import get_settings
@@ -43,3 +44,4 @@ app.include_router(stream_router)
 app.include_router(alerts_router)
 app.include_router(clips_router)
 app.include_router(snapshots_router)
+app.include_router(recordings_router)

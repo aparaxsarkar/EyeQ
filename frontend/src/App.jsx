@@ -4,6 +4,7 @@ import ClipModal from "./components/ClipModal";
 import Controls from "./components/Controls";
 import LiveFeed from "./components/LiveFeed";
 import LiveStatus from "./components/LiveStatus";
+import RecordingReview from "./components/RecordingReview";
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000";
 
@@ -165,6 +166,7 @@ export default function App() {
             latestAlert={alerts[0] ?? null}
             onReview={setSelectedAlert}
           />
+          <RecordingReview apiBase={API_BASE} onReview={setSelectedAlert} onError={setErrorMessage} />
           <div className="panel p-5">
             <p className="text-xs uppercase tracking-[0.3em] text-sand/45">Detection stack</p>
             <div className="mt-4 grid grid-cols-2 gap-3 text-sm text-sand/75">
