@@ -165,7 +165,7 @@ async def send_test_notification(request: Request) -> dict[str, Any]:
         if latest_incident
         else ""
     )
-    reason = reason or "This is a CareWatch test alert from your phone."
+    reason = reason or "This is a EyeQ test alert from your phone."
     suggested_action = (
         str(latest_incident.get("suggested_action") or "Open the app and review the latest incident details.")
         if latest_incident

@@ -27,7 +27,7 @@ struct IncidentDetailView: View {
 
                         Text(incident.reasonShort)
                             .font(.title2.weight(.semibold))
-                            .foregroundStyle(CareWatchPalette.ink)
+                            .foregroundStyle(EyeQPalette.ink)
 
                         DetailRow(title: "Started", value: incident.startedAt)
                         DetailRow(title: "Severity", value: incident.severity.capitalized)
@@ -40,7 +40,7 @@ struct IncidentDetailView: View {
                                 Text("Suggested action")
                                     .font(.headline)
                                 Text(incident.suggestedAction)
-                                    .foregroundStyle(CareWatchPalette.subtleInk)
+                                    .foregroundStyle(EyeQPalette.subtleInk)
                             }
                             .padding(.top, 8)
                         }
@@ -50,7 +50,7 @@ struct IncidentDetailView: View {
                 }
                 .padding()
             }
-            .background(CareWatchPalette.canvas.ignoresSafeArea())
+            .background(EyeQPalette.canvas.ignoresSafeArea())
             .navigationTitle("Incident")
             .navigationBarTitleDisplayMode(.inline)
         }
@@ -82,7 +82,7 @@ private struct DetailRow: View {
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(.secondary)
             Text(value.isEmpty ? "Unavailable" : value)
-                .foregroundStyle(CareWatchPalette.ink)
+                .foregroundStyle(EyeQPalette.ink)
         }
     }
 }

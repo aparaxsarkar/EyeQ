@@ -3,8 +3,8 @@ import UserNotifications
 import UIKit
 
 extension Notification.Name {
-    static let careWatchDeviceToken = Notification.Name("careWatchDeviceToken")
-    static let careWatchOpenIncident = Notification.Name("careWatchOpenIncident")
+    static let eyeQDeviceToken = Notification.Name("eyeQDeviceToken")
+    static let eyeQOpenIncident = Notification.Name("eyeQOpenIncident")
 }
 
 final class NotificationCoordinator: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -18,7 +18,7 @@ final class NotificationCoordinator: NSObject, UIApplicationDelegate, UNUserNoti
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%02x", $0) }.joined()
-        NotificationCenter.default.post(name: .careWatchDeviceToken, object: token)
+        NotificationCenter.default.post(name: .eyeQDeviceToken, object: token)
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -39,10 +39,10 @@ final class NotificationCoordinator: NSObject, UIApplicationDelegate, UNUserNoti
         withCompletionHandler completionHandler: @escaping () -> Void
     ) {
         if let incidentID = response.notification.request.content.userInfo["incident_id"] as? Int {
-            NotificationCenter.default.post(name: .careWatchOpenIncident, object: incidentID)
+            NotificationCenter.default.post(name: .eyeQOpenIncident, object: incidentID)
         } else if let incidentValue = response.notification.request.content.userInfo["incident_id"] as? String,
                   let incidentID = Int(incidentValue) {
-            NotificationCenter.default.post(name: .careWatchOpenIncident, object: incidentID)
+            NotificationCenter.default.post(name: .eyeQOpenIncident, object: incidentID)
         }
         completionHandler()
     }

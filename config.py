@@ -29,7 +29,7 @@ class Settings:
     openrouter_api_key: str = os.getenv("OPENROUTER_API_KEY", "")
     openrouter_model: str = os.getenv("OPENROUTER_MODEL", "") or "google/gemma-3-12b-it:free"
     openrouter_site_url: str = os.getenv("OPENROUTER_SITE_URL", "http://localhost:8000")
-    openrouter_app_name: str = os.getenv("OPENROUTER_APP_NAME", "CareWatch")
+    openrouter_app_name: str = os.getenv("OPENROUTER_APP_NAME", "EyeQ")
     ollama_base_url: str = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
     ollama_model: str = os.getenv("OLLAMA_MODEL", "")
     live_ollama_model: str = os.getenv("LIVE_OLLAMA_MODEL", "") or os.getenv("OLLAMA_MODEL", "")
@@ -79,7 +79,7 @@ class Settings:
     ollama_timeout_seconds: int = _env_int("OLLAMA_TIMEOUT_SECONDS", 6)
     provider_timeout_seconds: int = _env_int("PROVIDER_TIMEOUT_SECONDS", 8)
     review_timeout_seconds: int = _env_int("REVIEW_TIMEOUT_SECONDS", 10)
-    db_path: Path = BASE_DIR / "carewatch.db"
+    db_path: Path = BASE_DIR / "eyeq.db"
     clips_dir: Path = BASE_DIR / "clips"
     snapshots_dir: Path = BASE_DIR / "snapshots"
     uploads_dir: Path = BASE_DIR / "uploads"

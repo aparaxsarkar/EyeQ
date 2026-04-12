@@ -8,7 +8,7 @@ __pycache__/
 
 api/__pycache__/
 core/__pycache__/
-carewatch.db
+eyeq.db
 clips/
 uploads/
 frontend/node_modules/
@@ -17,7 +17,7 @@ frontend/.vite/
 Rec/
 .deriveddata-eyeqios/
 .playwright-cli/
-carewatch.db.corrupt-*
+eyeq.db.corrupt-*
 snapshots/
 EyeQ_IOS/.git/
 EyeQ_IOS/build/

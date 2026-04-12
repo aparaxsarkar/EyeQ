@@ -38,7 +38,7 @@ export default function App() {
 
   const headline = useMemo(() => {
     if (status.running) {
-      return "Monitoring is active. CareWatch is scoring scenes, buffering evidence, and ready to escalate.";
+      return "Monitoring is active. EyeQ is scoring scenes, buffering evidence, and ready to escalate.";
     }
     return "Monitoring is offline. Start a live stream to begin abuse-risk detection and clip preservation.";
   }, [status.running]);
@@ -132,7 +132,7 @@ export default function App() {
         <div className="grid gap-6 px-6 py-8 lg:grid-cols-[1.3fr_0.7fr] lg:px-8">
           <div className="space-y-5">
             <span className="inline-flex rounded-full border border-mint/30 bg-mint/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.28em] text-mint">
-              CareWatch MVP
+              EyeQ MVP
             </span>
             <div className="space-y-3">
               <h1 className="max-w-3xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl">

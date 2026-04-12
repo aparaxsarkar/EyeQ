@@ -12,7 +12,7 @@ enum APIError: LocalizedError {
         case .requestFailed(let statusCode):
             return "The server responded with status \(statusCode)."
         case .unreachableServer(let baseURL):
-            return "Could not reach \(baseURL). Use the public CareWatch URL for phone testing, or keep both devices on the same Wi‑Fi and allow Local Network access for EyeQ."
+            return "Could not reach \(baseURL). Use the public EyeQ URL for phone testing, or keep both devices on the same Wi‑Fi and allow Local Network access for EyeQ."
         }
     }
 }

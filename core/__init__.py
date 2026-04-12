@@ -1,2 +1,2 @@
-"""Core CareWatch services."""
+"""Core EyeQ services."""
 

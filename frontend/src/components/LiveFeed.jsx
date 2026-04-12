@@ -5,7 +5,7 @@ function getOutcome(status) {
     return {
       label: "Reviewing",
       tone: "border-mint/30 bg-mint/10 text-mint",
-      detail: "CareWatch is checking the suspicious scene now.",
+      detail: "EyeQ is checking the suspicious scene now.",
     };
   }
 
@@ -101,7 +101,7 @@ export default function LiveFeed({ apiBase, running, status, latestAlert, onRevi
                   </div>
                   <p className="mt-4 text-xs uppercase tracking-[0.28em] text-mint/80">Processing live scene</p>
                   <p className="mt-2 text-sm leading-6 text-sand/85">
-                    CareWatch is reviewing the suspicious movement now. The live feed can pause briefly while the scene is scored.
+                    EyeQ is reviewing the suspicious movement now. The live feed can pause briefly while the scene is scored.
                   </p>
                   <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/10">
                     <div className="h-full w-1/3 animate-pulse rounded-full bg-mint/80" />
@@ -112,7 +112,7 @@ export default function LiveFeed({ apiBase, running, status, latestAlert, onRevi
           </>
         ) : (
           <div className="flex h-full items-center justify-center px-6 text-center text-sm leading-7 text-sand/55">
-            Start monitoring to show the live camera feed with CareWatch person boxes and keypoints.
+            Start monitoring to show the live camera feed with EyeQ person boxes and keypoints.
           </div>
         )}
       </div>
@@ -190,7 +190,7 @@ export default function LiveFeed({ apiBase, running, status, latestAlert, onRevi
                     : "Timestamp unavailable"}
                 </p>
                 <p className="leading-7 text-sand/65">
-                  CareWatch saves a still frame when a new live anomaly review begins so the operator can see what triggered the check.
+                  EyeQ saves a still frame when a new live anomaly review begins so the operator can see what triggered the check.
                 </p>
               </div>
             </div>

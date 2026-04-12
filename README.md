@@ -1,6 +1,6 @@
-# CareWatch
+# EyeQ
 
-CareWatch is an AI-powered caretaker abuse detection MVP for vulnerable dependents, combining pose-based motion heuristics, Gemini scene verification, rolling clip capture, push notification escalation, SQLite logging, and a React dashboard.
+EyeQ is an AI-powered caretaker abuse detection MVP for vulnerable dependents, combining pose-based motion heuristics, Gemini scene verification, rolling clip capture, push notification escalation, SQLite logging, and a React dashboard.
 
 The dashboard supports both live monitoring and uploaded recording review, so demos can show the current room feed and retrospective analysis of saved footage.
 

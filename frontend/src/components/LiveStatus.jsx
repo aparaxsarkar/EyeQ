@@ -34,7 +34,7 @@ export default function LiveStatus({ status }) {
       </div>
 
       <p className="text-sm leading-7 text-sand/70">
-        CareWatch records only the last 30 seconds around a flagged event, keeping evidence focused and reviewable.
+        EyeQ records only the last 30 seconds around a flagged event, keeping evidence focused and reviewable.
       </p>
     </div>
   );

@@ -20,16 +20,16 @@ final class AppStore: ObservableObject {
     private var pollingTask: Task<Void, Never>?
     private static let defaultServerURL = "https://422a-65-113-61-98.ngrok-free.app"
     private var persistedDeviceToken: String? {
-        get { UserDefaults.standard.string(forKey: "carewatch.deviceToken") }
-        set { UserDefaults.standard.set(newValue, forKey: "carewatch.deviceToken") }
+        get { UserDefaults.standard.string(forKey: "eyeq.deviceToken") }
+        set { UserDefaults.standard.set(newValue, forKey: "eyeq.deviceToken") }
     }
     private var lastSurfacedIncidentID: Int {
-        get { UserDefaults.standard.integer(forKey: "carewatch.lastSurfacedIncidentID") }
-        set { UserDefaults.standard.set(newValue, forKey: "carewatch.lastSurfacedIncidentID") }
+        get { UserDefaults.standard.integer(forKey: "eyeq.lastSurfacedIncidentID") }
+        set { UserDefaults.standard.set(newValue, forKey: "eyeq.lastSurfacedIncidentID") }
     }
 
     init() {
-        self.serverURL = UserDefaults.standard.string(forKey: "carewatch.serverURL") ?? Self.defaultServerURL
+        self.serverURL = UserDefaults.standard.string(forKey: "eyeq.serverURL") ?? Self.defaultServerURL
     }
 
     func start() {
@@ -91,7 +91,7 @@ final class AppStore: ObservableObject {
 
     func saveServerURL(_ value: String) {
         serverURL = value
-        UserDefaults.standard.set(value, forKey: "carewatch.serverURL")
+        UserDefaults.standard.set(value, forKey: "eyeq.serverURL")
         Task {
             await retryDeviceRegistrationIfPossible(force: true)
             await refresh()
@@ -197,7 +197,7 @@ final class AppStore: ObservableObject {
         content.userInfo = ["incident_id": incident.id]
 
         let request = UNNotificationRequest(
-            identifier: "carewatch-incident-\(incident.id)",
+            identifier: "eyeq-incident-\(incident.id)",
             content: content,
             trigger: UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         )

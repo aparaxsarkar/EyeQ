@@ -42,7 +42,7 @@ class SuspicionSummary:
     latest_timestamp: float
 
 
-class CareWatchPipeline:
+class EyeQPipeline:
     def __init__(self, camera_index: int | str) -> None:
         self.settings = get_settings()
         self.source = camera_index
@@ -105,7 +105,7 @@ class CareWatchPipeline:
         self.running = True
         self.started_at = time.time()
         self._stop_event.clear()
-        self._task = asyncio.create_task(self._run_loop(), name="carewatch-pipeline")
+        self._task = asyncio.create_task(self._run_loop(), name="eyeq-pipeline")
 
     async def stop(self) -> None:
         self.running = False
@@ -344,7 +344,7 @@ class CareWatchPipeline:
         self._next_review_allowed_at = self._review_started_at + self.settings.gemini_cooldown_seconds
         self._review_task = asyncio.create_task(
             self._process_review(request, review_token),
-            name="carewatch-review",
+            name="eyeq-review",
         )
 
     async def _process_review(self, request: ReviewRequest, review_token: int) -> None:
@@ -506,7 +506,7 @@ class CareWatchPipeline:
                     suggested_action="Continue monitoring.",
                     review_latency_ms=self.last_review_latency_ms,
                 ),
-                name="carewatch-review-timeout",
+                name="eyeq-review-timeout",
             )
 
     def _update_detection_fps(self) -> None:
@@ -752,12 +752,12 @@ class CareWatchPipeline:
 
 class PipelineManager:
     def __init__(self) -> None:
-        self.pipeline: CareWatchPipeline | None = None
+        self.pipeline: EyeQPipeline | None = None
 
     async def start(self, source: int | str) -> dict[str, Any]:
         if self.pipeline and self.pipeline.running:
             raise RuntimeError("Pipeline already running")
-        self.pipeline = CareWatchPipeline(camera_index=source)
+        self.pipeline = EyeQPipeline(camera_index=source)
         await self.pipeline.start()
         return self.pipeline.get_status()
 

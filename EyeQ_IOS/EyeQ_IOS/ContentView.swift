@@ -66,15 +66,15 @@ private struct HomeView: View {
                     latestIncidentCard(overview.latestIncident)
                     trustPanel(overview: overview)
                 } else {
-                    ProgressView("Loading CareWatch")
+                    ProgressView("Loading EyeQ")
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.top, 60)
                 }
             }
             .padding()
         }
-        .background(CareWatchPalette.canvas.ignoresSafeArea())
-        .navigationTitle("CareWatch")
+        .background(EyeQPalette.canvas.ignoresSafeArea())
+        .navigationTitle("EyeQ")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
@@ -97,13 +97,13 @@ private struct HomeView: View {
                 StatusPill(label: overview.monitor.watchState.capitalized, color: statusColor(overview.monitor.watchState))
             }
 
-            Text(overview.monitor.running ? "CareWatch is actively watching \(overview.monitor.name)." : "\(overview.monitor.name) is offline.")
+            Text(overview.monitor.running ? "EyeQ is actively watching \(overview.monitor.name)." : "\(overview.monitor.name) is offline.")
                 .font(.title2.weight(.semibold))
-                .foregroundStyle(CareWatchPalette.ink)
+                .foregroundStyle(EyeQPalette.ink)
 
             Text(overview.monitor.lastClassifierReason)
                 .font(.body)
-                .foregroundStyle(CareWatchPalette.subtleInk)
+                .foregroundStyle(EyeQPalette.subtleInk)
 
             HStack(spacing: 12) {
                 MetricChip(title: "People", value: "\(overview.monitor.peopleCount)")
@@ -113,8 +113,8 @@ private struct HomeView: View {
         .padding(20)
         .background(
             RoundedRectangle(cornerRadius: 28, style: .continuous)
-                .fill(CareWatchPalette.card)
-                .shadow(color: CareWatchPalette.shadow, radius: 20, x: 0, y: 10)
+                .fill(EyeQPalette.card)
+                .shadow(color: EyeQPalette.shadow, radius: 20, x: 0, y: 10)
         )
     }
 
@@ -150,11 +150,11 @@ private struct HomeView: View {
                 .font(.headline)
             Label(overview.notificationChannels.pushConfigured ? "Push notifications are configured." : "Push notifications still need APNs setup.", systemImage: "iphone.radiowaves.left.and.right")
         }
-        .foregroundStyle(CareWatchPalette.ink)
+        .foregroundStyle(EyeQPalette.ink)
         .padding(20)
         .background(
             RoundedRectangle(cornerRadius: 28, style: .continuous)
-                .fill(CareWatchPalette.warmCard)
+                .fill(EyeQPalette.warmCard)
         )
     }
 
@@ -194,7 +194,7 @@ private struct LiveView: View {
                         Text(monitor.lastHeuristicReason.replacingOccurrences(of: "_", with: " ").capitalized)
                             .foregroundStyle(.secondary)
                         Text(monitor.lastClassifierReason)
-                            .foregroundStyle(CareWatchPalette.subtleInk)
+                            .foregroundStyle(EyeQPalette.subtleInk)
                     }
                     .padding(20)
                     .background(RoundedRectangle(cornerRadius: 28, style: .continuous).fill(Color.white.opacity(0.92)))
@@ -205,7 +205,7 @@ private struct LiveView: View {
             }
             .padding()
         }
-        .background(CareWatchPalette.canvas.ignoresSafeArea())
+        .background(EyeQPalette.canvas.ignoresSafeArea())
         .navigationTitle("Live camera")
         .task {
             while true {
@@ -231,7 +231,7 @@ private struct AlertsView: View {
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        .background(CareWatchPalette.canvas.ignoresSafeArea())
+        .background(EyeQPalette.canvas.ignoresSafeArea())
         .navigationTitle("Alerts")
     }
 }
@@ -345,13 +345,13 @@ private struct IncidentPreview: View {
                     HStack {
                         Text(incident.monitorName)
                             .font(.headline)
-                            .foregroundStyle(CareWatchPalette.ink)
+                            .foregroundStyle(EyeQPalette.ink)
                         Spacer()
                         StatusPill(label: incident.status.capitalized, color: statusColor)
                     }
                     Text(incident.reasonShort)
                         .font(.subheadline)
-                        .foregroundStyle(CareWatchPalette.subtleInk)
+                        .foregroundStyle(EyeQPalette.subtleInk)
                         .multilineTextAlignment(.leading)
                     Text(incident.startedAt.replacingOccurrences(of: "T", with: " ").replacingOccurrences(of: "Z", with: ""))
                         .font(.caption)
@@ -466,10 +466,10 @@ private struct MetricChip: View {
                 .foregroundStyle(.secondary)
             Text(value)
                 .font(.headline)
-                .foregroundStyle(CareWatchPalette.ink)
+                .foregroundStyle(EyeQPalette.ink)
         }
         .padding(12)
-        .background(CareWatchPalette.softCard)
+        .background(EyeQPalette.softCard)
         .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
     }
 }
@@ -489,7 +489,7 @@ struct StatusPill: View {
     }
 }
 
-enum CareWatchPalette {
+enum EyeQPalette {
     static let canvas = LinearGradient(
         colors: [Color(red: 0.96, green: 0.95, blue: 0.92), Color(red: 0.89, green: 0.95, blue: 0.92)],
         startPoint: .topLeading,

@@ -29,7 +29,7 @@ async def lifespan(app: FastAPI):
 
 
 settings = get_settings()
-app = FastAPI(title="CareWatch API", lifespan=lifespan)
+app = FastAPI(title="EyeQ API", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
